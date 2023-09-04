@@ -1,0 +1,3628 @@
+{
+	"info": {
+		"_postman_id": "d886aad6-35ad-4bf9-8dd6-2ca68b030e08",
+		"name": "ASM3 303x",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27509298"
+	},
+	"item": [
+		{
+			"name": "đăng kí ứng viên",
+			"item": [
+				{
+					"name": "ứng viên register đủ thông tin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"pm.test(\"Status code is 201, đăng kí thông tin và tài khoản thành công\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"    pm.expect(response).to.have.not.null;\r",
+									"    pm.expect(response).to.have.not.empty;\r",
+									"\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "tham1",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "tham1@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "account",
+									"value": "thamnguyen12345657889",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Hoaco@1234",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "0369857412",
+									"type": "text"
+								},
+								{
+									"key": "sex",
+									"value": "nữ",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "26/09/1993",
+									"type": "text"
+								},
+								{
+									"key": "experience",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "skill",
+									"value": "phân tích dữ liệu",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "mập",
+									"type": "text"
+								},
+								{
+									"key": "foreiginLanguage",
+									"value": "tiêng anh",
+									"type": "text"
+								},
+								{
+									"key": "education",
+									"value": "đại học",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "Screenshot 2023-05-03 221208.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseurl303x}}/users/register",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ứng viên register thiếu name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 500, đã xảy ra lỗi đăng ký\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "thamnguyen7@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "account",
+									"value": "thamnguyen123456",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Hoaco@1234890",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "0312654936",
+									"type": "text"
+								},
+								{
+									"key": "sex",
+									"value": "m",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "26/09/1999",
+									"type": "text"
+								},
+								{
+									"key": "experience",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "skill",
+									"value": "phân tích dữ liệu",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "mập",
+									"type": "text"
+								},
+								{
+									"key": "foreiginLanguage",
+									"value": "tiêng anh",
+									"type": "text"
+								},
+								{
+									"key": "education",
+									"value": "đại học",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "Screenshot 2023-05-03 221208.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseurl303x}}/users/register",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ứng viên register thiếu email",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 500, đã xảy ra lỗi đăng ký\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "thamnguyen123456",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "account",
+									"value": "thamnguyen123456",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Hoaco@1234890",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "0312654936",
+									"type": "text"
+								},
+								{
+									"key": "sex",
+									"value": "nữ",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "26/09/1999",
+									"type": "text"
+								},
+								{
+									"key": "experience",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "skill",
+									"value": "phân tích dữ liệu",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "mập",
+									"type": "text"
+								},
+								{
+									"key": "foreiginLanguage",
+									"value": "tiêng anh",
+									"type": "text"
+								},
+								{
+									"key": "education",
+									"value": "đại học",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "Screenshot 2023-05-03 221208.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseurl303x}}/users/register",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ứng viên register thiếu account",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 500, đã xảy ra lỗi đăng ký\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "thamnguyen123456",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "thamnguyen6@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "account",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Hoaco@1234890",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "0312654936",
+									"type": "text"
+								},
+								{
+									"key": "sex",
+									"value": "nữ",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "26/09/1999",
+									"type": "text"
+								},
+								{
+									"key": "experience",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "skill",
+									"value": "phân tích dữ liệu",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "mập",
+									"type": "text"
+								},
+								{
+									"key": "foreiginLanguage",
+									"value": "tiêng anh",
+									"type": "text"
+								},
+								{
+									"key": "education",
+									"value": "đại học",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "Screenshot 2023-05-03 221208.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseurl303x}}/users/register",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ứng viên register thiếu password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 500, đã xảy ra lỗi đăng ký\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "thamnguyen123456",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "thamnguyen6@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "account",
+									"value": "thamnguyen123456",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "0312654936",
+									"type": "text"
+								},
+								{
+									"key": "sex",
+									"value": "nữ",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "26/09/1999",
+									"type": "text"
+								},
+								{
+									"key": "experience",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "skill",
+									"value": "phân tích dữ liệu",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "mập",
+									"type": "text"
+								},
+								{
+									"key": "foreiginLanguage",
+									"value": "tiêng anh",
+									"type": "text"
+								},
+								{
+									"key": "education",
+									"value": "đại học",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "Screenshot 2023-05-03 221208.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseurl303x}}/users/register",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ứng viên register thiếu phone",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 500, đã xảy ra lỗi đăng ký\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "thamnguyen123456",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "thamnguyen6@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "account",
+									"value": "thamnguyen123456",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Hoaco@1234890",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "sex",
+									"value": "nữ",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "26/09/1999",
+									"type": "text"
+								},
+								{
+									"key": "experience",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "skill",
+									"value": "phân tích dữ liệu",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "mập",
+									"type": "text"
+								},
+								{
+									"key": "foreiginLanguage",
+									"value": "tiêng anh",
+									"type": "text"
+								},
+								{
+									"key": "education",
+									"value": "đại học",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/C:/Users/nxtun/Downloads/FUNIX-TESTER/PHẦN 3 KIỂM THỬ NÂNG CAO/LAB 303X/anh nen may tinh.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseurl303x}}/users/register",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ứng viên register thiếu sex",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 500, đã xảy ra lỗi đăng ký\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "tham",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "tha@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "account",
+									"value": "tham",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Hoaco@1234890",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "0312654936",
+									"type": "text"
+								},
+								{
+									"key": "sex",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "26/09/1999",
+									"type": "text"
+								},
+								{
+									"key": "experience",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "skill",
+									"value": "phân tích dữ liệu",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "mập",
+									"type": "text"
+								},
+								{
+									"key": "foreiginLanguage",
+									"value": "tiêng anh",
+									"type": "text"
+								},
+								{
+									"key": "education",
+									"value": "đại học",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "Screenshot 2023-05-03 221208.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseurl303x}}/users/register",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ứng viên register thiếu birthday",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 500, đã xảy ra lỗi đăng ký\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "nguyen12345",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "nguyen6@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "account",
+									"value": "nguyen12345",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Hoaco@1234890",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "0312654936",
+									"type": "text"
+								},
+								{
+									"key": "sex",
+									"value": "m",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "experience",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "skill",
+									"value": "phân tích dữ liệu",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "mập",
+									"type": "text"
+								},
+								{
+									"key": "foreiginLanguage",
+									"value": "tiêng anh",
+									"type": "text"
+								},
+								{
+									"key": "education",
+									"value": "đại học",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "Screenshot 2023-05-03 221208.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseurl303x}}/users/register",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ứng viên register thiếu experience",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 500, đã xảy ra lỗi đăng ký\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "thamnguyen123456",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "thamnguyen6@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "account",
+									"value": "thamnguyen123456",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Hoaco@1234890",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "0312654936",
+									"type": "text"
+								},
+								{
+									"key": "sex",
+									"value": "nữ",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "26/09/1999",
+									"type": "text"
+								},
+								{
+									"key": "experience",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "skill",
+									"value": "phân tích dữ liệu",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "mập",
+									"type": "text"
+								},
+								{
+									"key": "foreiginLanguage",
+									"value": "tiêng anh",
+									"type": "text"
+								},
+								{
+									"key": "education",
+									"value": "đại học",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "Screenshot 2023-05-03 221208.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseurl303x}}/users/register",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ứng viên register thiếu skill",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 500, đã xảy ra lỗi đăng ký\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "thamnguyen123456",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "thamnguyen6@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "account",
+									"value": "thamnguyen123456",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Hoaco@1234890",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "0312654936",
+									"type": "text"
+								},
+								{
+									"key": "sex",
+									"value": "nữ",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "26/09/1999",
+									"type": "text"
+								},
+								{
+									"key": "experience",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "skill",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "mập",
+									"type": "text"
+								},
+								{
+									"key": "foreiginLanguage",
+									"value": "tiêng anh",
+									"type": "text"
+								},
+								{
+									"key": "education",
+									"value": "đại học",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "Screenshot 2023-05-03 221208.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseurl303x}}/users/register",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ứng viên register thiếu description",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 500, đã xảy ra lỗi đăng ký\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "thamnguyen123456",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "thamnguyen6@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "account",
+									"value": "thamnguyen123456",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Hoaco@1234890",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "0312654936",
+									"type": "text"
+								},
+								{
+									"key": "sex",
+									"value": "nữ",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "26/09/1999",
+									"type": "text"
+								},
+								{
+									"key": "experience",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "skill",
+									"value": "phân tích dữ liệu",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "foreiginLanguage",
+									"value": "tiêng anh",
+									"type": "text"
+								},
+								{
+									"key": "education",
+									"value": "đại học",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "Screenshot 2023-05-03 221208.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseurl303x}}/users/register",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ứng viên register thiếu foreiginLanguage",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 500, đã xảy ra lỗi đăng ký\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "thamnguyen123456",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "thamnguyen6@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "account",
+									"value": "thamnguyen123456",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Hoaco@1234890",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "0312654936",
+									"type": "text"
+								},
+								{
+									"key": "sex",
+									"value": "nữ",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "26/09/1999",
+									"type": "text"
+								},
+								{
+									"key": "experience",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "skill",
+									"value": "phân tích dữ liệu",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "mập",
+									"type": "text"
+								},
+								{
+									"key": "foreiginLanguage",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "education",
+									"value": "cao đẳng",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "Screenshot 2023-05-03 221208.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseurl303x}}/users/register",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ứng viên register thiếu education",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 500, đã xảy ra lỗi đăng ký\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "thamnguyen123456",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "thamnguyen6@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "account",
+									"value": "thamnguyen123456",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Hoaco@1234890",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "0312654936",
+									"type": "text"
+								},
+								{
+									"key": "sex",
+									"value": "m",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "26/09/1999",
+									"type": "text"
+								},
+								{
+									"key": "experience",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "skill",
+									"value": "phân tích dữ liệu",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "mập",
+									"type": "text"
+								},
+								{
+									"key": "foreiginLanguage",
+									"value": "tiêng anh",
+									"type": "text"
+								},
+								{
+									"key": "education",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "Screenshot 2023-05-03 221208.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseurl303x}}/users/register",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ứng viên register thiếu avatar",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 500, đã xảy ra lỗi đăng ký\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "thamnguyen123456",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "thamnguyen6@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "account",
+									"value": "thamnguyen123456",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Hoaco@1234890",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "0312654936",
+									"type": "text"
+								},
+								{
+									"key": "sex",
+									"value": "nữ",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "26/09/1999",
+									"type": "text"
+								},
+								{
+									"key": "experience",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "skill",
+									"value": "phân tích dữ liệu",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "mập",
+									"type": "text"
+								},
+								{
+									"key": "foreiginLanguage",
+									"value": "tiêng anh",
+									"type": "text"
+								},
+								{
+									"key": "education",
+									"value": "đại học",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseurl303x}}/users/register",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ứng viên register password nhỏ hơn 8 kí tư",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 500, đã xảy ra lỗi đăng ký\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "6@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "account",
+									"value": "thamnguyen123456",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Ho1",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "0312654936",
+									"type": "text"
+								},
+								{
+									"key": "sex",
+									"value": "m",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "26/09/1999",
+									"type": "text"
+								},
+								{
+									"key": "experience",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "skill",
+									"value": "phân tích dữ liệu",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "mập",
+									"type": "text"
+								},
+								{
+									"key": "foreiginLanguage",
+									"value": "tiêng anh",
+									"type": "text"
+								},
+								{
+									"key": "education",
+									"value": "đại học",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "Screenshot 2023-05-03 221208.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseurl303x}}/users/register",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ứng viên register password thiếu chữ in hoa",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 500, đã xảy ra lỗi đăng ký\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "tung",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "t@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "account",
+									"value": "Thamtung",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345sdgh",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "0312654936",
+									"type": "text"
+								},
+								{
+									"key": "sex",
+									"value": "nư",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "26/09/1999",
+									"type": "text"
+								},
+								{
+									"key": "experience",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "skill",
+									"value": "phân tích dữ liệu",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "mập",
+									"type": "text"
+								},
+								{
+									"key": "foreiginLanguage",
+									"value": "tiêng anh",
+									"type": "text"
+								},
+								{
+									"key": "education",
+									"value": "đại học",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "Screenshot 2023-05-03 221208.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseurl303x}}/users/register",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ứng viên register password thiếu chữ thường",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 500, đã xảy ra lỗi đăng ký\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "kknhuy",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "kk6@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "account",
+									"value": "kkkhing",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "HOACO@1234",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "0312654936",
+									"type": "text"
+								},
+								{
+									"key": "sex",
+									"value": "m",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "26/09/1999",
+									"type": "text"
+								},
+								{
+									"key": "experience",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "skill",
+									"value": "phân tích dữ liệu",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "mập",
+									"type": "text"
+								},
+								{
+									"key": "foreiginLanguage",
+									"value": "tiêng anh",
+									"type": "text"
+								},
+								{
+									"key": "education",
+									"value": "đại học",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "Screenshot 2023-05-03 221208.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseurl303x}}/users/register",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ứng viên register password thiếu số",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 500, đã xảy ra lỗi đăng ký\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "th123456",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "tha6@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "account",
+									"value": "tham456",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "HOAco@@@@",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "0312654936",
+									"type": "text"
+								},
+								{
+									"key": "sex",
+									"value": "m",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "26/09/1999",
+									"type": "text"
+								},
+								{
+									"key": "experience",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "skill",
+									"value": "phân tích dữ liệu",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "mập",
+									"type": "text"
+								},
+								{
+									"key": "foreiginLanguage",
+									"value": "tiêng anh",
+									"type": "text"
+								},
+								{
+									"key": "education",
+									"value": "đại học",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "Screenshot 2023-05-03 221208.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseurl303x}}/users/register",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ứng viên register password email sai định dạng",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 500, đã xảy ra lỗi đăng ký\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "thamnguyen123456",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "thamnguyen6.com",
+									"type": "text"
+								},
+								{
+									"key": "account",
+									"value": "thamnguyen123456",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Met@123456",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "0312654936",
+									"type": "text"
+								},
+								{
+									"key": "sex",
+									"value": "m",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "26/09/1999",
+									"type": "text"
+								},
+								{
+									"key": "experience",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "skill",
+									"value": "phân tích dữ liệu",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "mập",
+									"type": "text"
+								},
+								{
+									"key": "foreiginLanguage",
+									"value": "tiêng anh",
+									"type": "text"
+								},
+								{
+									"key": "education",
+									"value": "đại học",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "Screenshot 2023-05-03 221208.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseurl303x}}/users/register",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ứng viên đăng nhập",
+			"item": [
+				{
+					"name": "ứng viên đăng nhập thành công",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"pm.test(\"Đăng nhập thành công\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.expect(response.token).to.have.not.null;\r",
+									"    pm.expect(response.name).to.have.not.null;\r",
+									"    pm.expect(response.email).to.have.not.null;\r",
+									"    pm.expect(response.account).to.have.not.null;\r",
+									"    pm.expect(response.password).to.have.not.null;\r",
+									"    pm.expect(response.phone).to.have.not.null;\r",
+									"    pm.expect(response.sex).to.have.not.null;\r",
+									"    pm.expect(response.birthday).to.have.not.null;\r",
+									"    pm.expect(response.experience).to.have.not.null;\r",
+									"    pm.expect(response.skill).to.have.not.null;\r",
+									"    pm.expect(response.description).to.have.not.null;\r",
+									"    pm.expect(response.foreiginLanguage).to.have.not.null;\r",
+									"    pm.expect(response.education).to.have.not.null;\r",
+									"    pm.expect(response.avatar).to.have.not.null;\r",
+									"    token = response.token;\r",
+									"    pm.environment.set(\"token ứng vien\", token);\r",
+									"});\r",
+									"pm.test(\"Hiển thị thông báo đăng nhập thành công\", function() {\r",
+									"    msg = \"Đăng nhập thành công\";\r",
+									"    pm.expect(response.message).to.eql(msg);\r",
+									"});\r",
+									"reqBody = JSON.parse(pm.request.body.raw);\r",
+									"pm.test(\"account trùng với account đăng nhập\", function() {\r",
+									"    pm.expect(response.user.account).to.eql(reqBody.account);\r",
+									"});\r",
+									" "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"account\" : \"thamnguyen12345657889\",\r\n    \"password\" : \"Hoaco@1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl303x}}/users/login",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tài khoản không tồn tại",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"pm.test(\"Không tìm thấy tài khoản người dùng tương ứng\", function(){\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Hiển thị message Tài khoản người dùng không tồn tại\", function() {\r",
+									"    msg = \"Tài khoản người dùng không tồn tại\";\r",
+									"    pm.expect(response.message).to.eql(msg);\r",
+									"});\r",
+									" "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"account\" : \"hoa hong\",\r\n    \"password\" : \"Hoaco@1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl303x}}/users/login",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Trống tài khoản",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"pm.test(\"Tài khoản để trống \", function(){\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Hiển thị message Tài khoản người dùng không tồn tại\", function() {\r",
+									"    msg = \"Tài khoản người dùng không tồn tại\";\r",
+									"    pm.expect(response.message).to.eql(msg);\r",
+									"});\r",
+									" "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"account\" : \"\",\r\n    \"password\" : \"Hoaco@1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl303x}}/users/login",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Trống mật khẩu",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"pm.test(\"Mật khẩu để trống \", function(){\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Hiển thị message Tài khoản người dùng không tồn tại\", function() {\r",
+									"    msg = \"Tài khoản người dùng không tồn tại\";\r",
+									"    pm.expect(response.message).to.eql(msg);\r",
+									"});\r",
+									" "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"account\" : \"thamnguyen12345657889\",\r\n    \"password\" : \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl303x}}/users/login",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sai mật khẩu",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"pm.test(\"Sai mật khẩu\", function(){\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Hiển thị message Tài khoản người dùng không tồn tại\", function() {\r",
+									"    msg = \"Tài khoản người dùng không tồn tại\";\r",
+									"    pm.expect(response.message).to.eql(msg);\r",
+									"});\r",
+									" "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"account\" : \"thamnguyen12345657889\",\r\n    \"password\" : \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl303x}}/users/login",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Mật khẩu ít hơn 8 kí tự",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"pm.test(\"Mật khẩu ít hơn 8 kí tự \", function(){\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Hiển thị message Mật khẩu không hợp lệ\", function() {\r",
+									"    msg = \"Mật khẩu không hợp lệ, mật khẩu phải tối thiểu 8 kí tự, bao gồm chữ hoa, thường, số\";\r",
+									"    pm.expect(response.message).to.eql(msg);\r",
+									"});\r",
+									" "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"account\" : \"thamnguyen12345657889\",\r\n    \"password\" : \"Hoaco@12\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl303x}}/users/login",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Mật khẩu không có chữ in hoa",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"pm.test(\"Mật khẩu không có chữ in hoa \", function(){\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Hiển thị message Mật khẩu không hợp lệ\", function() {\r",
+									"    msg = \"Mật khẩu không hợp lệ, mật khẩu phải tối thiểu 8 kí tự, bao gồm chữ hoa, thường, số\";\r",
+									"    pm.expect(response.message).to.eql(msg);\r",
+									"});\r",
+									" "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"account\" : \"thamnguyen12345657889\",\r\n    \"password\" : \"hoaco@1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl303x}}/users/login",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Mật khẩu không có chữ thường",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"pm.test(\"Mật khẩu không có chữ thường \", function(){\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Hiển thị message Mật khẩu không hợp lệ\", function() {\r",
+									"    msg = \"Mật khẩu không hợp lệ, mật khẩu phải tối thiểu 8 kí tự, bao gồm chữ hoa, thường, số\";\r",
+									"    pm.expect(response.message).to.eql(msg);\r",
+									"});\r",
+									" "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"account\" : \"thamnguyen12345657889\",\r\n    \"password\" : \"HOACO@1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl303x}}/users/login",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Mật khẩu không có số",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"pm.test(\"Mật khẩu không có số \", function(){\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Hiển thị message Mật khẩu không hợp lệ\", function() {\r",
+									"    msg = \"Mật khẩu không hợp lệ, mật khẩu phải tối thiểu 8 kí tự, bao gồm chữ hoa, thường, số\";\r",
+									"    pm.expect(response.message).to.eql(msg);\r",
+									"});\r",
+									" "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"account\" : \"thamnguyen12345657889\",\r\n    \"password\" : \"HOACO@@@@@@\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl303x}}/users/login",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Nhà tuyển dụng đăng nhập",
+			"item": [
+				{
+					"name": "nhà tuyển dụng đăng nhập thành công",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"pm.test(\"Đăng nhập thành công\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    token = response.token;\r",
+									"    pm.environment.set(\"token nhà tuyển dụng\", token);\r",
+									"});\r",
+									"pm.test(\"Hiển thị thông báo đăng nhập thành công\", function() {\r",
+									"    msg = \"Đăng nhập thành công\";\r",
+									"    pm.expect(response.message).to.eql(msg);\r",
+									"});\r",
+									"reqBody = JSON.parse(pm.request.body.raw);\r",
+									"pm.test(\"account trùng với account đăng nhập\", function() {\r",
+									"    pm.expect(response.user.account).to.eql(reqBody.account);\r",
+									"});\r",
+									" "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"account\" : \"bomoto\",\r\n    \"password\" : \"Hoaco@1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl303x}}/company/login-company",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"company",
+								"login-company"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tài khoản không tồn tại",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"pm.test(\"Không tìm thấy tài khoản người dùng tương ứng\", function(){\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Hiển thị message Tài khoản người dùng không tồn tại\", function() {\r",
+									"    msg = \"Tài khoản người dùng không tồn tại\";\r",
+									"    pm.expect(response.message).to.eql(msg);\r",
+									"});\r",
+									" "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"account\" : \"Batnhaoqua\",\r\n    \"password\" : \"Hoaco@1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl303x}}/company/login-company",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"company",
+								"login-company"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Trống tài khoản",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"pm.test(\"Tài khoản để trống \", function(){\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Hiển thị message Tài khoản người dùng không tồn tại\", function() {\r",
+									"    msg = \"Tài khoản người dùng không tồn tại\";\r",
+									"    pm.expect(response.message).to.eql(msg);\r",
+									"});\r",
+									" "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"account\" : \"\",\r\n    \"password\" : \"Hoaco@1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl303x}}/company/login-company",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"company",
+								"login-company"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Trống mật khẩu",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"pm.test(\"Mật khẩu để trống \", function(){\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Hiển thị message Tài khoản người dùng không tồn tại\", function() {\r",
+									"    msg = \"Tài khoản người dùng không tồn tại\";\r",
+									"    pm.expect(response.message).to.eql(msg);\r",
+									"});\r",
+									" "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"account\" : \"Bomoto\",\r\n    \"password\" : \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl303x}}/company/login-company",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"company",
+								"login-company"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sai mật khẩu",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"pm.test(\"Sai mật khẩu\", function(){\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Hiển thị message Tài khoản người dùng không tồn tại\", function() {\r",
+									"    msg = \"Tài khoản người dùng không tồn tại\";\r",
+									"    pm.expect(response.message).to.eql(msg);\r",
+									"});\r",
+									" "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"account\" : \"bomoto\",\r\n    \"password\" : \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl303x}}/company/login-company",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"company",
+								"login-company"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Mật khẩu ít hơn 8 kí tự",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"pm.test(\"Mật khẩu ít hơn 8 kí tự \", function(){\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Hiển thị message Mật khẩu không hợp lệ\", function() {\r",
+									"    msg = \"Mật khẩu không hợp lệ, mật khẩu phải tối thiểu 8 kí tự, bao gồm chữ hoa, thường, số\";\r",
+									"    pm.expect(response.message).to.eql(msg);\r",
+									"});\r",
+									" "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"account\" : \"bomoto\",\r\n    \"password\" : \"Hoaco@12\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl303x}}/company/login-company",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"company",
+								"login-company"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Mật khẩu không có chữ in hoa",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"pm.test(\"Mật khẩu không có chữ in hoa \", function(){\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Hiển thị message Mật khẩu không hợp lệ\", function() {\r",
+									"    msg = \"Mật khẩu không hợp lệ, mật khẩu phải tối thiểu 8 kí tự, bao gồm chữ hoa, thường, số\";\r",
+									"    pm.expect(response.message).to.eql(msg);\r",
+									"});\r",
+									" "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"account\" : \"bomoto\",\r\n    \"password\" : \"hoaco@1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl303x}}/company/login-company",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"company",
+								"login-company"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Mật khẩu không có chữ thường",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"pm.test(\"Mật khẩu không có chữ thường \", function(){\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Hiển thị message Mật khẩu không hợp lệ\", function() {\r",
+									"    msg = \"Mật khẩu không hợp lệ, mật khẩu phải tối thiểu 8 kí tự, bao gồm chữ hoa, thường, số\";\r",
+									"    pm.expect(response.message).to.eql(msg);\r",
+									"});\r",
+									" "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"account\" : \"bomoto\",\r\n    \"password\" : \"HOACO@1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl303x}}/company/login-company",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"company",
+								"login-company"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Mật khẩu không có số",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"pm.test(\"Mật khẩu không có số \", function(){\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Hiển thị message Mật khẩu không hợp lệ\", function() {\r",
+									"    msg = \"Mật khẩu không hợp lệ, mật khẩu phải tối thiểu 8 kí tự, bao gồm chữ hoa, thường, số\";\r",
+									"    pm.expect(response.message).to.eql(msg);\r",
+									"});\r",
+									" "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"account\" : \"bomoto\",\r\n    \"password\" : \"HOACO@@@@@@\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl303x}}/company/login-company",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"company",
+								"login-company"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "lấy danh sách công việc",
+			"item": [
+				{
+					"name": "Lấy danh sách thành công",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"pm.test(\"lấy danh sách công việc thành công\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"id = response[5].id;\r",
+									"pm.environment.set(\"jobId\",id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl303x}}/work/list-work",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"work",
+								"list-work"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Có lỗi khi lấy danh sách",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"pm.test(\"Có lỗi khi lấy danh sách\", function(){\r",
+									"    pm.response.to.have.status(500);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl303x}}/work/list-work",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"work",
+								"list-work"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "5. Lấy thông tin user hiện tại",
+			"item": [
+				{
+					"name": "Lấy thành công thông tin của user hiện tại",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"pm.test(\"lấy thông tin user hiện tại thành công\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"   \r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token ứng vien}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl303x}}/users/get-information-user",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"users",
+								"get-information-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Có lỗi trong quá trình lấy dữ liệu",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"pm.test(\"Có lỗi trong quá trình lấy dữ liệu\", function(){\r",
+									"    pm.response.to.have.status(500);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token ứng vien}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseurl303x}}/users/get-information-user",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"users",
+								"get-information-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bạn chưa đăng nhập - bỏ trống token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"pm.test(\"Bạn chưa đăng nhập token trống\", function(){\r",
+									"    pm.response.to.have.status(403);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl303x}}/users/get-information-user",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"users",
+								"get-information-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bạn chưa đăng nhập - nhập sai token ứng viên",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"pm.test(\"sai token ứng viên bạn chưa đăng nhập\", function(){\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "dffghghjh",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl303x}}/users/get-information-user",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"users",
+								"get-information-user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Lấy danh sách các ứng viên",
+			"item": [
+				{
+					"name": "lấy danh sách ứng viên thành công",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"pm.test(\"Lấy danh sách ứng viên thành công\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token nhà tuyển dụng}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl303x}}/work-user/get-all-admin",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"work-user",
+								"get-all-admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Có lỗi trong quá trình lấy dữ liệu",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"pm.test(\"Có lỗi trong quá trình lấy dữ liệu\", function(){\r",
+									"    pm.response.to.have.status(500);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl303x}}/work-user/get-all-admin",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"work-user",
+								"get-all-admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "403 -Forbidden",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"pm.test(\"Forbidden\", function(){\r",
+									"    pm.response.to.have.status(403);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token nhà tuyển dụng}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl303x}}/users/get-information-user",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"users",
+								"get-information-user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "7. ỨNG TUYỂN",
+			"item": [
+				{
+					"name": "Ứng tuyển thành công",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"pm.test(\"Ứng tuyển thành công\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token ứng vien}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"jobId\" : {{jobId}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl303x}}/application/create-application",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"application",
+								"create-application"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "403 forbidden",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "8.LẤY DANH SACHS CÁC CÔNG TY",
+			"item": [
+				{
+					"name": "Lấy danh sách các công ty thành công",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"pm.test(\"Lấy danh sách các công ty thành công\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl303x}}/company/getAllCompany",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"company",
+								"getAllCompany"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "500 có lỗi trong quá trình lấy dữ liệu",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"pm.test(\"Có lỗi trong quá trình lấy dữ liệu\", function(){\r",
+									"    pm.response.to.have.status(500);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "9. LẤY DANH SÁCH CÁC ĐƠN ỨNG TUYỂN",
+			"item": [
+				{
+					"name": "Lấy danh sách các đơn ứng tuyển thành công",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"pm.test(\"Lấy danh sách các công ty thành công\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl303x}}/application/getall-application",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"application",
+								"getall-application"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Có lỗi trong quá trình lấy dữ liệu",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"pm.test(\"Có lỗi trong quá trình lấy dữ liệu\", function(){\r",
+									"    pm.response.to.have.status(500);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl303x}}/application/getall-application",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"application",
+								"getall-application"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "10.LẤY DANH SÁCH CÁC USER",
+			"item": [
+				{
+					"name": "Lấy danh sách các user thành công",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"pm.test(\"Lấy danh sách các user thành công\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl303x}}/users/getAllUsers",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"users",
+								"getAllUsers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Có lỗi trong quá trình lấy dữ liệu",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"pm.test(\"Có lỗi trong quá trình lấy dữ liệu\", function(){\r",
+									"    pm.response.to.have.status(500);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl303x}}/application/getall-application",
+							"host": [
+								"{{baseurl303x}}"
+							],
+							"path": [
+								"application",
+								"getall-application"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "account",
+			"value": ""
+		},
+		{
+			"key": "password",
+			"value": ""
+		},
+		{
+			"key": "baseurl303x",
+			"value": "http://13.228.39.1:5000/api"
+		},
+		{
+			"key": "token ứng vien",
+			"value": ""
+		},
+		{
+			"key": "token nhà tuyển dụng",
+			"value": ""
+		},
+		{
+			"key": "jobId",
+			"value": ""
+		}
+	]
+}
